@@ -31,7 +31,7 @@ services:
       - ./scripts/pgnotify-rabitmq-width-rules-in-db.sql:/docker-entrypoint-initdb.d/pgnotify-rabbitmq.sql
 
   rabbitmq:
-    image: 3.13.7-management-alpine
+    image: rabbitmq:3.13.7-management-alpine
     environment:
       - RABBITMQ_DEFAULT_USER=rabbit
       - RABBITMQ_DEFAULT_PASS=rabbit

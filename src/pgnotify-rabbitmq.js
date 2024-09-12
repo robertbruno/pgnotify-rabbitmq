@@ -161,7 +161,7 @@ config.notify({
 		}
 	},
 	fcm: function(_c, _n, v) {
-		if(v.projectId){
+		if(v.projectId && v.privateKey){
 			fcmNotifyHandler.initialize(v);
 
 			return function(message) {

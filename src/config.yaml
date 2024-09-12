@@ -66,42 +66,15 @@ notify:
       debug: true
       json: true
       handlers:
+        # for more info link to: https://www.npmjs.com/package/firebase-admin
         fcm:
-          clientEmail: firebase-adminsdk-v4349@tripea-delivery-663a5.iam.gserviceaccount.com
-          privateKey: |
-            -----BEGIN PRIVATE KEY-----
-            MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC/aATNYwF5Rldh
-            M6E968Wjr5dU/MfYtr7gfGhgLxiQ9tMRPdKoKMjTDizX8piTluINEtCDmirVGajB
-            WZFXJH8iUTk4kX5ZunpiP0UhAKqz5qS2MPwd5ET3OqYg/VepEVsfJGUOyevd4ffg
-            HU0fEo8cs85ACfmlRj3ihbVpy48ALzdCIwox6PEhj7F1sEWNmO3np60PX4aT6HFe
-            Cbu26p9bmaNVhXhwvJkw4xFU/y8xVPHpkh4XXMIBgiBNX8Sx7xRTS6Ia+wTBF/me
-            2rHMsmH67c+F+pLpWHaPNV98YbnZiDcHBGJ/zxV12r1REFSdyq6+OR8qX9wtgYJw
-            lhVWn9CFAgMBAAECggEACJSnMnXvyPoITMk9v0Lkl1P12s+CPgrjP7kUDMvPtB/8
-            kldNLFC3wA5woDW19VfcRm3Df0LYDLmbwR88zsVKFcXCZPDQ00Dy35iqhrI69Nmw
-            JKLJiqWDGfo9HFl/JosqpJjDFwiiVE4fCKMHpA7273h4FJLd6DTf7VnFKjr/7Cgd
-            sL64fXAnf/Hyr7WTk4HgUqiIyRDMSgPJ7Zwy62YH2gV8zEfXsdb36ObarAJRb+2d
-            5RSBDRS9ckqneu/jP70Se9vjmQvDSnbl03jYjmkTi5LvCprlPuDbc5ZI4PdP6nIS
-            ONw69zGX1jecYClma1PvnQOwWQ5eg5X+YpnMskl7QQKBgQD9X6XUpH0r21dMJXQF
-            PJbDYKQ+ey8kkhwIwuE+64x9An5M+qfDffHpHso3LRaEnYegIumu5EBI2qTxqWaR
-            4VUO5oYz4gjcYL2HoxwxavIkBPuOmOELZRv7LjpkALqAtT3/NqMtHLvs4jdMAdll
-            pEJRy+CnD90xlvI0BVP74lx82QKBgQDBY+8/TDBDb5HqIrp70lz5gu44PfZoYlYV
-            4Y0rGQIvloG8UnIC370d3vhNGQKBmlUW/KV126WTjPn00a/QvAKQD63zoWNnF9de
-            yBoqAnVPgVGy8BFaDWBaOqoU0TPH43aZJhSLszCFITE+yp2zfGCMQ8olyLdVM1tg
-            fbbrnTNVjQKBgQCsqCgF3k0ZvK8hSYhlJSOLYeiqVyEJ57LI2ZvKV5L1gOR2Knx1
-            v/ZAKGYd8VCd8AcCvafGMO4Jd0zdDNXDZOykabxb0JS/MAEXU7QbjMgSeX6+bjk0
-            naLSqG7LxJ9So67qod3SGPmKc6DA36W4GJXEzYx561qMt1K21kajp13lCQKBgFAy
-            y0Kqq9ErcY1xPXif8mKew3+bYpZDQYPtd4eJ5XgqqD6ayiEa++hpUPtYBcwNXoAb
-            4doQbofUDMxUMN8VONLZTcAdC4XzQyNRRFhrkI6aCHF2URvRNEX20hWz9A9O6x3z
-            xs1wUAzFiRCLIf8O81L3wdsNc8nndFt9huAK3wD5AoGAA7JnkSVukJinnX/wIGAC
-            M8UZ5EY3tSqaWLi9+XRYaJ+1/yL1HkKKalgGpsf8CWAbRPnoD86aC5jHgt7VwKXU
-            +UfkASEBalLPeMBcCAfxaOlECvCaLBYFESh8/PMDqbvP+H5rwuq9AmJwSS6JGPd6
-            Gb+FO2H5NnFz6/AXFPHS0cQ=
-            -----END PRIVATE KEY-----
-          projectId: tripea-delivery-663a5
+          clientEmail: firebase-adminsdk-v4349@****-*****-663a5.iam.gserviceaccount.com
+          projectId: fooo-project-id
+          privateKey:
 
 
 # RabbitMQ configuration
 rabbit:
     # Test rabbit instance with user guest, password guest on localhost.
     # You can put an IP address here, for IPv6 enclose the address with []
-    local: amqp://u_notificaciones:u_notificaciones01*.,@rabbitmq/SISTEMAS_NOTIFICACIONES?heartbeat=30
+    local: amqp://rabbit:rabbit@rabbitmq/TEST?heartbeat=30
