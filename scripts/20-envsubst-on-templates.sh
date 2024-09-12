@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export CONFIG_DIR=${CONFIG_DIR:-"/gdt/pgnotify-rabbitmq"}
+export CONFIG_DIR=${CONFIG_DIR:-"/opt/pgnotify-rabbitmq"}
 export PGHOST=${PGHOST:-"postgresql"}
 export PGPORT=${PGPORT:-5432}
 export PGDATABASE=${PGDATABASE:-"postgres"}
