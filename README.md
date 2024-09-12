@@ -138,7 +138,7 @@ Optional you can set `HANDLE_ACK` Environment variable to run `SELECT pgnotify_r
 To run first create a config.yaml file with your configuration then run:
 
 ```bash
-docker run -d -v $(pwd)/config.yaml:/opt/config.yaml registry.sigis.com.ve/gdt/pgnotify-rabbitmq:latest
+docker run -d -v $(pwd)/config.yaml:/opt/config.yaml robertbruno/pgnotify-rabbitmq:latest
 ```
 
 ## Monitoring with Prometheus and Grafana.
@@ -154,16 +154,7 @@ You can visualize this metrics in [Grafana](https://grafana.com/) with the follo
 >
 > * [Metrics docs](docs/METRICS.md)
 
-## Automation
-
-This project has a Jenkinsfile with the necessary instructions for the automation of tests, construction of the app.
-For more information visit:
-
-* [Jenkinsfile](Jenkinsfile)
-* [Jenkins Project](https://jenkins.sigis.com.ve/job/dockers/job/pgnotify-rabbitmq/)
-* [Estándares Integración Continua](http://git.sigis.com.ve/gdt/estandares-desarrollo/blob/master/docs/jenkins/jenkins.md)
-
 ## Help
 
 * To view the change history [changelog](./src/CHANGELOG.md)
-* To view or report bug's go to [issues](http://git.sigis.com.ve/librerias-desarrollo/pgnotify-rabbitmq/-/issues)
+* To view or report bug's go to [issues](https://github.com/robertbruno/pgnotify-rabbitmq/issues)
