@@ -7,12 +7,6 @@ databases:
         user: ${PGUSER}
         password: ${PGPASSWORD}
         ssl: ${PGSSLMODE}
-
-# Notify listeners
-# These are used by the pgnotify-rabbitmq.js application which connects
-# to each database and adds a notify listener so that postgresql code
-# can issue NOTIFY('key','message') and that message is sent to
-# a rabbitmq instance
 notify:
     -
         enabled: true
@@ -36,7 +30,6 @@ notify:
                 instance: local
                 topic: ${RABBITMQ_EXCHANGE}
                 key: ${RABBITMQ_SQL_ROUTINGKEY}
-
     -
       enabled: true
       database: postgres
@@ -45,7 +38,6 @@ notify:
       json: true
       handlers:
         http
-
     -
       enabled: true
       database: postgres
@@ -58,9 +50,6 @@ notify:
           projectId: ${FCM_PROJECT_ID}
           privateKey: ${FCM_PRIVATE_KEY}
 
-
 # RabbitMQ configuration
 rabbit:
-    # Test rabbit instance with user guest, password guest on localhost.
-    # You can put an IP address here, for IPv6 enclose the address with []
     local: ${RABBITMQ_URI}

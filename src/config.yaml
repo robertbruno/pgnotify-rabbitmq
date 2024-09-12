@@ -72,7 +72,6 @@ notify:
           projectId: fooo-project-id
           privateKey:
 
-
 # RabbitMQ configuration
 rabbit:
     # Test rabbit instance with user guest, password guest on localhost.
