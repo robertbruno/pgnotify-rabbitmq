@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build  -f Dockerfile -t pgnotify-rabbitmq:$(jq '.version' src/package.json) .
+      run: docker build  -f Dockerfile -t pgnotify-rabbitmq:$(jq -r '.version' src/package.json) .
