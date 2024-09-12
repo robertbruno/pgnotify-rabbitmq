@@ -33,9 +33,9 @@ services:
   rabbitmq:
     image: 3.13.7-management-alpine
     environment:
-      - RABBITMQ_DEFAULT_USER=u_notificaciones
-      - RABBITMQ_DEFAULT_PASS=u_notificaciones01*.,
-      - RABBITMQ_DEFAULT_VHOST=SISTEMAS_NOTIFICACIONES
+      - RABBITMQ_DEFAULT_USER=rabbit
+      - RABBITMQ_DEFAULT_PASS=rabbit
+      - RABBITMQ_DEFAULT_VHOST=TEST
     configs:
       - source: rabbit_definitions_v1
         target: /etc/rabbitmq/definitions.json

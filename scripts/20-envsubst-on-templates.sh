@@ -13,7 +13,7 @@ export NOTIFY_JSON=${NOTIFY_JSON:-false}
 export RABBITMQ_TOPIC=${RABBITMQ_TOPIC:-"amq.fanout"}
 export RABBITMQ_ROUTING_KEY=${RABBITMQ_ROUTING_KEY:-"job.status"}
 export RABBITMQ_EXCHANGE=${RABBITMQ_EXCHANGE:-app}
-export RABBITMQ_URI=${RABBITMQ_URI:-"amqp://u_notificaciones:u_notificaciones01*.,@rabbitmq/SISTEMAS_NOTIFICACIONES?heartbeat=30"}
+export RABBITMQ_URI=${RABBITMQ_URI:-"amqp://rabbit:rabbit@rabbitmq/TEST?heartbeat=30"}
 export RABBITMQ_MAIL_QUEUE_NAME=${RABBITMQ_MAIL_QUEUE_NAME:-"app.mail"}
 export RABBITMQ_MAIL_ROUTINGKEY=${RABBITMQ_MAIL_ROUTINGKEY:-"app.mail"}
 export RABBITMQ_SQL_QUEUE_NAME=${RABBITMQ_SQL_QUEUE_NAME:-"app.sql"}

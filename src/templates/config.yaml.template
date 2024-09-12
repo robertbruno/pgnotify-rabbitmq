@@ -56,8 +56,7 @@ notify:
         fcm:
           clientEmail: ${FCM_CLIENTE_MAIL}
           projectId: ${FCM_PROJECT_ID}
-          privateKey: |
-            ${FCM_PRIVATE_KEY}
+          privateKey: ${FCM_PRIVATE_KEY}
 
 
 # RabbitMQ configuration
