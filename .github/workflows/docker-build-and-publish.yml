@@ -38,6 +38,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Get package.json version
+        id: get_version
+        run: echo "::set-output name=version::$(jq -r '.version' src/package.json)"
+
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
@@ -78,7 +82,7 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.get_version.outputs.version }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
