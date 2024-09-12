@@ -1,0 +1,67 @@
+databases:
+    postgres:
+        enabled: true
+        host: ${PGHOST}
+        port: ${PGPORT}
+        database: ${PGDATABASE}
+        user: ${PGUSER}
+        password: ${PGPASSWORD}
+        ssl: ${PGSSLMODE}
+
+# Notify listeners
+# These are used by the pgnotify-rabbitmq.js application which connects
+# to each database and adds a notify listener so that postgresql code
+# can issue NOTIFY('key','message') and that message is sent to
+# a rabbitmq instance
+notify:
+    -
+        enabled: true
+        database: postgres
+        name: ${RABBITMQ_MAIL_QUEUE_NAME}
+        debug: true
+        json: false
+        handlers:
+            rabbit:
+                instance: local
+                topic: ${RABBITMQ_EXCHANGE}
+                key: ${RABBITMQ_MAIL_ROUTINGKEY}
+    -
+        enabled: true
+        database: postgres
+        name: ${RABBITMQ_SQL_QUEUE_NAME}
+        debug: true
+        json: false
+        handlers:
+            rabbit:
+                instance: local
+                topic: ${RABBITMQ_EXCHANGE}
+                key: ${RABBITMQ_SQL_ROUTINGKEY}
+
+    -
+      enabled: true
+      database: postgres
+      name: http
+      debug: true
+      json: true
+      handlers:
+        http
+
+    -
+      enabled: true
+      database: postgres
+      name: fcm
+      debug: true
+      json: true
+      handlers:
+        fcm:
+          clientEmail: ${FCM_CLIENTE_MAIL}
+          projectId: ${FCM_PROJECT_ID}
+          privateKey: |
+            ${FCM_PRIVATE_KEY}
+
+
+# RabbitMQ configuration
+rabbit:
+    # Test rabbit instance with user guest, password guest on localhost.
+    # You can put an IP address here, for IPv6 enclose the address with []
+    local: ${RABBITMQ_URI}

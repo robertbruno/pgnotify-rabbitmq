@@ -1,0 +1,37 @@
+{
+  "name": "pgnotify-rabbitmq",
+  "version": "2.10.34",
+  "private": true,
+  "scripts": {
+    "start": "node pgnotify-rabbitmq.js",
+    "prepare": "cd .. && husky install ./src/.husky",
+    "commit-msg": "commitlint --edit $HUSKY_GIT_PARAMS",
+    "standard-version": "standard-version --no-verify"
+  },
+  "standard-version": {
+    "skip": {
+      "tag": true
+    }
+  },
+  "dependencies": {
+    "@hmcts/nodejs-healthcheck": "^1.8.5",
+    "amqplib": "^0.7.0",
+    "axios": "^1.7.2",
+    "bluebird": "^3.3.4",
+    "express": "^4.18.1",
+    "firebase-admin": "^12.2.0",
+    "js-yaml": "^3.8.1",
+    "pg-promise": "^11.5.4",
+    "prom-client": "^14.0.1",
+    "winston": "^3.8.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "husky": "^7.0.4",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "semver": "5.1.0",
+    "standard-version": "^9.3.2"
+  }
+}
