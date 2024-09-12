@@ -14,13 +14,13 @@ LABEL maintainer="${MAINTAINER}" \
         org.opencontainers.image.description="Docker for pgnotify-rabbitmq"
 
 # ENV CMD=${WORKDIR_NAME}/pgnotify-rabbitmq.js
-ENV CMD=/opt/pgnotify-rabbitmq.js
+ENV CMD=/opt/pgnotify-rabbitmq/pgnotify-rabbitmq.js
 ENV NODE_ENV=production
 
 # install gettext for envsubst
 RUN apk update && apk add gettext
 
-WORKDIR /${PRODUCT_NAME}/${SERVICE_NAME}/
+WORKDIR /opt/pgnotify-rabbitmq/
 
 COPY ./src/package.json .
 RUN npm install --production 
