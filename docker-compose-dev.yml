@@ -1,0 +1,88 @@
+version: '3.6'
+
+services:
+
+  pgnotify-rabbitmq:
+    depends_on:
+      - postgresql
+      - rabbitmq
+    build:
+      dockerfile: Dockerfile
+      context: .
+    environment:
+      - "NODE_ENV=development"
+    ports:
+     - 9021:9021
+    networks:
+      - dev
+    restart: always
+
+  postgresql:
+    image: postgres:16
+    ports:
+     - 5432:5432
+    networks:
+     - dev
+    environment:
+        POSTGRES_DB: postgres
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./scripts/pgnotify-rabitmq-width-rules-in-db.sql:/docker-entrypoint-initdb.d/pgnotify-rabbitmq.sql
+
+  rabbitmq:
+    image: 3.13.7-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=u_notificaciones
+      - RABBITMQ_DEFAULT_PASS=u_notificaciones01*.,
+      - RABBITMQ_DEFAULT_VHOST=SISTEMAS_NOTIFICACIONES
+    configs:
+      - source: rabbit_definitions_v1
+        target: /etc/rabbitmq/definitions.json
+        uid: '999'
+        gid: '999'
+        mode: 0777
+    networks:
+      - dev
+    ports:
+      - 5672:5672
+      - 15672:15672
+
+  prometheus:
+    image: prom/prometheus
+    networks:
+      - dev
+    ports:
+      - 9090:9090
+    configs:
+      - source: prometheus_config_v1
+        target: /etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana:latest
+    networks:
+      - dev
+    ports:
+      - 3001:3001
+    environment:
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_SERVER_HTTP_PORT=3001
+      - GF_SERVER_PROTOCOL=http
+    configs:
+      - source: grafana_datasources_v1
+        target: /etc/grafana/provisioning/datasources/datasources.yml
+
+networks:
+  dev:
+
+configs:
+  rabbit_definitions_v1:
+    file: ./scripts/rabbit_definitions.json
+  prometheus_config_v1:
+    file: ./scripts/prometheus.yml
+  grafana_datasources_v1:
+    file: ./scripts/grafana-datasources.yml
+
