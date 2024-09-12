@@ -1,6 +1,6 @@
 {
   "name": "pgnotify-rabbitmq",
-  "version": "2.10.48",
+  "version": "2.10.49",
   "private": true,
   "scripts": {
     "start": "node pgnotify-rabbitmq.js",
