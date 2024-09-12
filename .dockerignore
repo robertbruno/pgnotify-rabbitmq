@@ -1,0 +1,9 @@
+nbproject
+.husky
+.history
+Dockerfile
+nbproject
+Jenkinsfile
+commitlint.config.js
+.versionrc
+commitlint.config.js
