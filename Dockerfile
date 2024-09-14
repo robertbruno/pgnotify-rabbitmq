@@ -20,7 +20,7 @@ ENV NODE_ENV=production
 # install gettext for envsubst
 RUN apk update && apk add gettext
 
-WORKDIR /opt/pgnotify-rabbitmq/
+WORKDIR /opt/pgnotify-rabbitmq
 
 COPY ./src/package.json .
 RUN npm install --production 

@@ -1,16 +1,25 @@
-version: '3.6'
+#version: '3.6'
 
 services:
 
   pgnotify-rabbitmq:
-    depends_on:
-      - postgresql
-      - rabbitmq
+    # depends_on:
+    #   - postgresql
+    #   - rabbitmq
     build:
       dockerfile: Dockerfile
       context: .
     environment:
       - "NODE_ENV=development"
+      - USE_TEMPLATE=true
+      - PGHOST=postgres
+      - PGSSLMODE=disabled
+      - PGUSER=postgres
+      - PGPORT=5432
+      - PGDATABASE=postgres
+      - PGPASSWORD=postgres
+      - RABBITMQ_URI=amamqp://rabbit:rabbit@rabbitmq/TEST?heartbeat=30
+      - RABBITMQ_EXCHANGE=app
     ports:
      - 9021:9021
     networks:

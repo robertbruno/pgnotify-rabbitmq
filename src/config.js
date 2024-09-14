@@ -57,17 +57,17 @@ const safelyClose = async (errorNumber = 0, errorMessage="") => {
     console.log(`[${errorKey}] ${errorMessage}`)
     
     // gestiona la desconexión de base de datos
-    if(databases){
-        Object.keys(databases).forEach( (dbname) => {
-            try {
-                process.stdout.write(`[database.disconnecting] ${dbname}...`);
-                databases[dbname].$pool.end()
-                process.stdout.write(`${logger.FGGREEN}OK${logger.BGRESET}`)
-            } catch (error) {
-                console.log("🚀 ~ Object.keys ~ error:", error)
-            }
-        })
-    }
+    // if(databases){
+    //     Object.keys(databases).forEach( (dbname) => {
+    //         try {
+    //             process.stdout.write(`[database.disconnecting] ${dbname}...`);
+    //             databases[dbname].$pool.end()
+    //             process.stdout.write(`${logger.FGGREEN}OK${logger.BGRESET}`)
+    //         } catch (error) {
+    //             console.log("🚀 ~ Object.keys ~ error:", error)
+    //         }
+    //     })
+    // }
 
     setTimeout(() => {
         metrics.clean()
