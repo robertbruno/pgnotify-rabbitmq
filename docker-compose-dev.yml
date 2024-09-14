@@ -18,7 +18,7 @@ services:
       - PGPORT=5432
       - PGDATABASE=postgres
       - PGPASSWORD=postgres
-      - RABBITMQ_URI=amamqp://rabbit:rabbit@rabbitmq/TEST?heartbeat=30
+      - RABBITMQ_URI=amqp://rabbit:rabbit@rabbitmq/TEST?heartbeat=30
       - RABBITMQ_EXCHANGE=app
     ports:
      - 9021:9021
