@@ -23,7 +23,7 @@ Every time the application starts it will execute the function `"pgnotify_rabbit
 > For more info see:
 > * [Database Functions](docs/DBFUNCTION.md)
 
-## Build Docker Compose
+## Build docker compose
 
 ```bash
 docker compose -f docker-compose-dev.yml  up --build
