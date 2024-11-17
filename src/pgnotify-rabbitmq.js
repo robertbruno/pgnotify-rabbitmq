@@ -162,6 +162,7 @@ config.notify({
 	},
 	fcm: function(_c, _n, v) {
 		if(v.projectId && v.privateKey){
+			v.privateKey = v.privateKey.replace(/\\n/g, '\n');
 			fcmNotifyHandler.initialize(v);
 
 			return function(message) {
