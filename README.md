@@ -123,6 +123,25 @@ echo "SELECT SELECT pgnotify_rabbitmq.send('rabbit','{\"key\":\"key.test\",\"bod
 
 > Note: "payload" is optional here. If absent then the original message will be sent including the routing key etc.
 
+## FCM
+
+This Node.js project implements an automated workflow to send push notifications via Firebase Cloud Messaging (FCM) from events generated in a PostgreSQL database.
+
+Upon receiving a NOTIFY event, the application extracts the message payload, which contains the information necessary to construct the FCM notification (e.g., title, body, device token, etc.).
+
+```sql
+SELECT pgnotify_rabbitmq.send('fcm',
+	json_build_object('topic', 
+	  'all-notifications',
+	  'notification',json_build_object(
+	  	'title', 'Titulo',
+	  	'body', 'mensaje'
+	  )
+	)::TEXT  
+  );
+
+```
+
 ## Environment
 
 You can use environment variables to configure the service, for more info about it see:
