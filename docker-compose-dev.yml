@@ -27,7 +27,9 @@ services:
     restart: always
 
   postgresql:
-    image: postgres:16
+    build:
+      dockerfile: postgres.Dockerfile
+      context: .
     ports:
      - 5432:5432
     networks:
