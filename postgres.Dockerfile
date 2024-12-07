@@ -8,10 +8,5 @@ RUN apt-get update && apt-get install -y postgresql-17-cron
 RUN echo "shared_preload_libraries='pg_cron'" >> /usr/share/postgresql/postgresql.conf.sample
 RUN echo "cron.database_name='postgres'" >> /usr/share/postgresql/postgresql.conf.sample
 
-# Configura el script de entrada para iniciar pg_cron
-COPY ./docker-entrypoint-initdb.d /docker-entrypoint-initdb.d
-COPY ./entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
+COPY scripts/pgnotify-rabitmq-width-rules-in-db.sql /docker-entrypoint-initdb.d/pgnotify-rabitmq-width-rules-in-db.sql
 
-ENTRYPOINT ["entrypoint.sh"]
-CMD ["postgres"]
