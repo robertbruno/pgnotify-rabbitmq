@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.10.63 (2024-12-07)
+
+
+### Bug Fixes
+
+* clean privateKey ([9751e51](https://github.com/robertbruno/pgnotify-rabbitmq/commit/9751e5173c2d00c1e61a7fd0586ab45323d07e7d))
+* update config templates ([120f089](https://github.com/robertbruno/pgnotify-rabbitmq/commit/120f0896ee208d1d365c0e4ae37bbdc08a661a61))
+* update default env values ([94b655c](https://github.com/robertbruno/pgnotify-rabbitmq/commit/94b655c365c26f6b7db3c4b2da6377fae30285e3))
+* update dev files ([a040a3a](https://github.com/robertbruno/pgnotify-rabbitmq/commit/a040a3af679bc9963c61a461059a050b78ac2fa4))
+* update docker image tags ([02a3f19](https://github.com/robertbruno/pgnotify-rabbitmq/commit/02a3f19c89196087832928791f5ad8bc72ed8422))
+* update RABBITMQ_URI ([3192581](https://github.com/robertbruno/pgnotify-rabbitmq/commit/31925811caf93727e782991ce46d36285ee4e5bb))
+* update scripts/20-envsubst-on-templates.sh ([16a984a](https://github.com/robertbruno/pgnotify-rabbitmq/commit/16a984ab3cfc07f2b2532ed7126b45d1ccda1b46))
+
 ### 2.10.62 (2024-11-17)
 
 
